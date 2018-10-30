@@ -146,11 +146,73 @@ footer a::after {
     line-height: 21px;
 }
 
+.btn-ui-test-container {
+    text-align:     center;
+}
+
+.btn-ui-test {
+    position:           absolute;
+    height:             30px;
+    width:              150px;
+    margin-left:        -75px;
+    cursor:             pointer;
+    bottom:             10px;
+    z-index:            99;
+    background-color:   #020202;
+    color:              white;
+    font-size:          12px;
+    border:             1px solid lightgray;
+    border-radius:      5px;
+}
+
+.btn-ui-test:hover {
+    background-color:   lightblue;
+    color:              darkblue;
+}
+
+.css-attribution p {
+    position:           absolute;
+    height:             auto;
+    width:              auto;
+    bottom:             0;
+    right:              0;
+    z-index:            98;
+    background-color:   transparent;
+    color:              yellow;
+    font-size:          10px;
+    font-style:         italic;
+}
+
+.link-tip {
+    display: none;
+}
+
+.link-tip:hover {
+    cursor:     help;
+    position:   relative;
+    padding:    5px;
+    display:    block;
+    z-index:    100;
+    left:       -250px;
+    margin:     10px;
+    width:      250px;
+    top:        -100px;
+}
+
 /** $sidebar */
 
 .wrapper li {
     display: block;
     padding: 10px 15px 0 15px;
+}
+
+.preamble li {
+    font-size: 80%;
+    padding-left: 80px;
+}
+
+.banner li {
+    text-align: center !important;
 }
 
 .design-selection li a.design-name,
