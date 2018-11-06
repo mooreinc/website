@@ -57553,217 +57553,6 @@ Ext.define('Ext.theme.neptune.panel.Panel', {override:'Ext.panel.Panel', border:
     this.callParent();
   }
 }});
-Ext.define('Ext.layout.container.Table', {alias:['layout.table'], extend:Ext.layout.container.Container, alternateClassName:'Ext.layout.TableLayout', type:'table', createsInnerCt:true, targetCls:Ext.baseCSSPrefix + 'table-layout-ct', tableCls:Ext.baseCSSPrefix + 'table-layout', cellCls:Ext.baseCSSPrefix + 'table-layout-cell', childEls:['table', 'tbody'], tableAttrs:null, getItemSizePolicy:function(item) {
-  return this.autoSizePolicy;
-}, initInheritedState:function(inheritedState, inheritedStateInner) {
-  inheritedStateInner.inShrinkWrapTable = true;
-}, getLayoutItems:function() {
-  var me = this, result = [], items = me.callParent(), len = items.length, item, i;
-  for (i = 0; i < len; i++) {
-    item = items[i];
-    if (!item.hidden) {
-      result.push(item);
-    }
-  }
-  return result;
-}, getHiddenItems:function() {
-  var result = [], items = this.owner.items.items, len = items.length, i, item;
-  for (i = 0; i < len; ++i) {
-    item = items[i];
-    if (item.rendered && item.hidden) {
-      result.push(item);
-    }
-  }
-  return result;
-}, renderChildren:function() {
-  var me = this, items = me.getLayoutItems(), tbody = me.tbody.dom, rows = tbody.rows, len = items.length, hiddenItems = me.getHiddenItems(), cells, curCell, rowIdx, cellIdx, item, trEl, tdEl, i;
-  cells = me.calculateCells(items);
-  for (i = 0; i < len; i++) {
-    curCell = cells[i];
-    rowIdx = curCell.rowIdx;
-    cellIdx = curCell.cellIdx;
-    item = items[i];
-    trEl = rows[rowIdx];
-    if (!trEl) {
-      trEl = tbody.insertRow(rowIdx);
-      if (me.trAttrs) {
-        trEl.set(me.trAttrs);
-      }
-    }
-    tdEl = Ext.get(trEl.cells[cellIdx] || trEl.insertCell(cellIdx));
-    if (!item.rendered) {
-      me.renderItem(item, tdEl, 0);
-    } else {
-      if (!me.isValidParent(item, tdEl, rowIdx, cellIdx, tbody)) {
-        me.moveItem(item, tdEl, 0);
-      }
-    }
-    if (me.tdAttrs) {
-      tdEl.set(me.tdAttrs);
-    }
-    if (item.tdAttrs) {
-      tdEl.set(item.tdAttrs);
-    }
-    tdEl.set({colSpan:item.colspan || 1, rowSpan:item.rowspan || 1, cls:me.cellCls + ' ' + (item.cellCls || '')});
-    if (!cells[i + 1] || cells[i + 1].rowIdx !== rowIdx) {
-      cellIdx++;
-      while (trEl.cells[cellIdx]) {
-        trEl.deleteCell(cellIdx);
-      }
-    }
-  }
-  rowIdx++;
-  while (tbody.rows[rowIdx]) {
-    tbody.deleteRow(rowIdx);
-  }
-  for (i = 0, len = hiddenItems.length; i < len; ++i) {
-    me.ensureInDocument(hiddenItems[i].getEl());
-  }
-}, ensureInDocument:function(el) {
-  var dom = el.dom.parentNode;
-  while (dom) {
-    if (dom.tagName.toUpperCase() === 'BODY') {
-      return;
-    }
-    dom = dom.parentNode;
-  }
-  Ext.getDetachedBody().appendChild(el, true);
-}, calculate:function(ownerContext) {
-  if (!ownerContext.hasDomProp('containerChildrenSizeDone')) {
-    this.done = false;
-  } else {
-    var targetContext = ownerContext.targetContext, widthShrinkWrap = ownerContext.widthModel.shrinkWrap, heightShrinkWrap = ownerContext.heightModel.shrinkWrap, shrinkWrap = heightShrinkWrap || widthShrinkWrap, table = shrinkWrap && this.table.dom, targetPadding = shrinkWrap && targetContext.getPaddingInfo();
-    if (widthShrinkWrap) {
-      ownerContext.setContentWidth(table.offsetWidth + targetPadding.width, true);
-    }
-    if (heightShrinkWrap) {
-      ownerContext.setContentHeight(table.offsetHeight + targetPadding.height, true);
-    }
-  }
-}, calculateCells:function(items) {
-  var cells = [], rowIdx = 0, colIdx = 0, cellIdx = 0, totalCols = this.columns || Infinity, rowspans = [], len = items.length, item, i, j;
-  for (i = 0; i < len; i++) {
-    item = items[i];
-    while (colIdx >= totalCols || rowspans[colIdx] > 0) {
-      if (colIdx >= totalCols) {
-        colIdx = 0;
-        cellIdx = 0;
-        rowIdx++;
-        for (j = 0; j < totalCols; j++) {
-          if (rowspans[j] > 0) {
-            rowspans[j]--;
-          }
-        }
-      } else {
-        colIdx++;
-      }
-    }
-    cells.push({rowIdx:rowIdx, cellIdx:cellIdx});
-    for (j = item.colspan || 1; j; --j) {
-      rowspans[colIdx] = item.rowspan || 1;
-      ++colIdx;
-    }
-    ++cellIdx;
-  }
-  return cells;
-}, getRenderTree:function() {
-  var me = this, items = me.getLayoutItems(), rows = [], result = Ext.apply({tag:'table', id:me.owner.id + '-table', 'data-ref':'table', role:'presentation', cls:me.tableCls, cellspacing:0, cellpadding:0, cn:{tag:'tbody', id:me.owner.id + '-tbody', 'data-ref':'tbody', role:'presentation', cn:rows}}, me.tableAttrs), tdAttrs = me.tdAttrs, i, len = items.length, item, curCell, tr, rowIdx, cellIdx, cell, cells;
-  cells = me.calculateCells(items);
-  for (i = 0; i < len; i++) {
-    item = items[i];
-    curCell = cells[i];
-    rowIdx = curCell.rowIdx;
-    cellIdx = curCell.cellIdx;
-    tr = rows[rowIdx];
-    if (!tr) {
-      tr = rows[rowIdx] = {tag:'tr', role:'presentation', cn:[]};
-      if (me.trAttrs) {
-        Ext.apply(tr, me.trAttrs);
-      }
-    }
-    cell = tr.cn[cellIdx] = {tag:'td', role:'presentation'};
-    if (tdAttrs) {
-      Ext.apply(cell, tdAttrs);
-    }
-    Ext.apply(cell, {colSpan:item.colspan || 1, rowSpan:item.rowspan || 1, cls:me.cellCls + ' ' + (item.cellCls || '')});
-    me.configureItem(item);
-    cell.cn = item.getRenderTree();
-  }
-  return result;
-}, isValidParent:function(item, target, rowIdx, cellIdx) {
-  if (arguments.length === 3) {
-    return this.table.isAncestor(item.el);
-  }
-  return item.el.dom.parentNode === this.tbody.dom.rows[rowIdx].cells[cellIdx];
-}, destroy:function() {
-  if (this.owner.rendered) {
-    var targetEl = this.getRenderTarget(), cells, i, len;
-    if (targetEl) {
-      cells = targetEl.query('.' + this.cellCls, false);
-      for (i = 0, len = cells.length; i < len; i++) {
-        cells[i].destroy();
-      }
-    }
-  }
-  this.callParent();
-}});
-Ext.define('Ext.container.ButtonGroup', {extend:Ext.panel.Panel, alias:'widget.buttongroup', alternateClassName:'Ext.ButtonGroup', baseCls:Ext.baseCSSPrefix + 'btn-group', layout:{type:'table'}, defaultType:'button', frame:true, frameHeader:false, titleAlign:'center', noTitleCls:'notitle', bodyAriaRole:'toolbar', focusableContainerEl:'body', focusableContainer:true, initComponent:function() {
-  var me = this, cols = me.columns;
-  if (cols) {
-    me.layout = Ext.apply({columns:cols}, me.layout);
-  }
-  if (!me.title) {
-    me.addClsWithUI(me.noTitleCls);
-  }
-  me.callParent();
-}, onBeforeAdd:function(component) {
-  if (component.isButton) {
-    if (this.defaultButtonUI && component.ui === 'default' && !component.hasOwnProperty('ui')) {
-      component.ui = this.defaultButtonUI;
-    } else {
-      component.ui = component.ui + '-toolbar';
-    }
-  }
-  this.callParent(arguments);
-}, beforeRender:function() {
-  var me = this, ariaAttr;
-  me.callParent();
-  if (me.afterHeaderInit && !me.header && me.title) {
-    ariaAttr = me.bodyAriaRenderAttributes || (me.bodyAriaRenderAttributes = {});
-    ariaAttr['aria-label'] = me.title;
-  }
-}, updateHeader:function(force) {
-  var me = this, bodyEl = me.body, header, ariaAttr;
-  me.callParent([force]);
-  header = me.header;
-  if (header) {
-    if (bodyEl) {
-      bodyEl.dom.setAttribute('aria-labelledby', header.id + '-title-textEl');
-      bodyEl.dom.removeAttribute('aria-label');
-    } else {
-      ariaAttr = me.bodyAriaRenderAttributes || (me.bodyAriaRenderAttributes = {});
-      ariaAttr['aria-labelledby'] = header.id + '-title-textEl';
-      delete ariaAttr['aria-label'];
-    }
-  } else {
-    if (me.title) {
-      if (bodyEl) {
-        bodyEl.dom.setAttribute('aria-label', me.title);
-        bodyEl.dom.removeAttribute('aria-labelledby');
-      } else {
-        ariaAttr = me.bodyAriaRenderAttributes || (me.bodyAriaRenderAttributes = {});
-        ariaAttr['aria-label'] = me.title;
-        delete ariaAttr['aria-labelledby'];
-      }
-    }
-  }
-}, privates:{applyDefaults:function(c) {
-  if (!Ext.isString(c)) {
-    c = this.callParent(arguments);
-  }
-  return c;
-}}});
-Ext.define('Ext.theme.neptune.container.ButtonGroup', {override:'Ext.container.ButtonGroup', usePlainButtons:false});
 Ext.define('Ext.container.Monitor', {target:null, selector:'', scope:null, addHandler:null, removeHandler:null, invalidateHandler:null, clearPropertiesOnDestroy:false, clearPrototypeOnDestroy:false, disabled:0, constructor:function(config) {
   Ext.apply(this, config);
 }, destroy:function() {
@@ -66638,6 +66427,12 @@ Ext.define('Ext.form.field.Display', {extend:Ext.form.field.Base, alias:'widget.
   ret.value = this.getDisplayValue();
   return ret;
 }});
+Ext.define('Ext.form.field.Hidden', {extend:Ext.form.field.Base, alias:['widget.hiddenfield', 'widget.hidden'], alternateClassName:'Ext.form.Hidden', focusable:false, inputType:'hidden', isTextInput:false, hideLabel:true, hidden:true, ariaRole:'presentation', initComponent:function() {
+  this.formItemCls += '-hidden';
+  this.callParent();
+}, isEqual:function(value1, value2) {
+  return this.isEqualAsString(value1, value2);
+}, initEvents:Ext.emptyFn, setSize:Ext.emptyFn, setWidth:Ext.emptyFn, setHeight:Ext.emptyFn, setPosition:Ext.emptyFn, setPagePosition:Ext.emptyFn, markInvalid:Ext.emptyFn, clearInvalid:Ext.emptyFn});
 Ext.define('Ext.tip.Tip', {extend:Ext.panel.Panel, xtype:'tip', alternateClassName:'Ext.Tip', minWidth:40, maxWidth:500, shadow:'sides', constrainPosition:true, autoRender:true, hidden:true, baseCls:Ext.baseCSSPrefix + 'tip', focusOnToFront:false, maskOnDisable:false, closeAction:'hide', alwaysFramed:true, frameHeader:false, initComponent:function() {
   var me = this;
   me.floating = Ext.apply({}, {shadow:me.shadow}, me.self.prototype.floating);
@@ -80499,26 +80294,26 @@ Ext.define('UITest.store.Scorers', {extend:Ext.data.Store, alternateClassName:['
   cfg = cfg || {};
   me.callParent([Ext.apply({storeId:'Scorers', data:[{name:'Johnny', value:393}, {name:'Steve', value:83}, {name:'Jimbo', value:21}, {name:'Gerry', value:807}, {name:'Olga', value:51}, {name:'Sandy', value:620}], fields:[{name:'name'}, {type:'int', name:'value'}]}, cfg)]);
 }});
-Ext.define('UITest.view.CrazyDialogViewModel', {extend:Ext.app.ViewModel, alias:'viewmodel.dialog'});
-Ext.define('UITest.view.CrazyDialog', {extend:Ext.window.Window, alias:'widget.crazydialog', alternateClassName:['Dialog'], config:{STATE:{ERROR:0, WARNING:1, GOOD:2}, dlgBuddy:null}, viewModel:{type:'dialog'}, autoShow:true, height:373, padding:'1 8 0 0', resizable:{handles:'w e'}, width:509, icon:'resources/images/flash.png', title:'Enter required information', titleAlign:'center', defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, dockedItems:[{xtype:'toolbar', dock:'bottom', itemId:'tbMain', 
+Ext.define('UITest.view.CrazyDialog', {extend:Ext.window.Window, alias:'widget.crazydialog', alternateClassName:['Dialog'], config:{STATE:{ERROR:0, WARNING:1, GOOD:2}, dlgBuddy:null}, autoShow:true, height:373, padding:'1 8 0 0', resizable:{handles:'w e'}, width:509, closable:false, icon:'resources/images/flash.png', title:'Enter required information', titleAlign:'center', defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, dockedItems:[{xtype:'toolbar', dock:'bottom', itemId:'tbMain', 
 padding:'0 0 10 10', items:[{xtype:'button', itemId:'btnOK', text:'Okay', listeners:{click:'onBtnOKClick'}}, {xtype:'tbfill'}, {xtype:'button', margin:'0 30 0 0', text:'Re-set'}, {xtype:'button', width:105, text:'Cansel', listeners:{click:'onButtonClick'}}]}], tools:[{xtype:'tool', itemId:'toolHelp', type:'help', listeners:{click:'onToolHelpClick'}}, {xtype:'tool', itemId:'toolSettings', tooltip:'Configure settings for the window that launched this dialog', type:'gear', listeners:{click:'onToolSettingsClick'}}], 
 items:[{xtype:'form', flex:1, itemId:'formPanel', bodyPadding:'0 8 10 0', header:false, title:'My Form', layout:{type:'vbox', align:'stretch'}, items:[{xtype:'textfield', itemId:'txtName', fieldLabel:'Event', msgTarget:'side', allowBlank:false, blankText:'This field is maybe required', listeners:{change:'onTxtNameChange'}}, {xtype:'tagfield', margin:0, fieldLabel:'Scorers', labelAlign:'right', labelPad:6, fieldCls:'x-form-field crazyBorder', displayField:'name', queryMode:'local', store:'Scorers', 
 valueField:'value', listeners:{change:'onTagfieldChange'}}, {xtype:'textareafield', margin:'20 2 0 4', fieldLabel:'Description', listeners:{change:'onTextareafieldChange'}}, {xtype:'radiogroup', border:'', itemId:'rgWhose', margin:'10 0 0 95', width:500, fieldBodyCls:'radioGroup', fieldLabel:'', items:[{xtype:'radiofield', itemId:'radioMine', boxLabel:'Mine', listeners:{change:'onRadioMineChange'}}, {xtype:'radiofield', itemId:'radioYours', boxLabel:'yours', listeners:{change:'onRadioYoursChange'}}, 
 {xtype:'radiofield', itemId:'radioTheres', margin:'5 0 0 0', boxLabel:'Theres', listeners:{change:'onRadioTheresChange'}}]}, {xtype:'container', itemId:'contStatus', layout:{type:'hbox', align:'stretch'}, items:[{xtype:'label', itemId:'labelStatus', width:105, text:'Dialog Status'}, {xtype:'image', height:16, itemId:'imgError', width:16, src:'resources/images/error.png'}, {xtype:'image', height:16, hidden:true, itemId:'imgWarning', width:16, alt:'Warning Warning!', src:'resources/images/warning.png', 
-title:"It's unclear to me too"}, {xtype:'image', height:16, hidden:true, itemId:'imgGood', width:16, src:'resources/images/good.png'}]}]}], listeners:{afterrender:'onWindowAfterRender', close:'onWindowClose'}, onBtnOKClick:function(button, e, eOpts) {
+title:"It's unclear to me too"}, {xtype:'image', height:16, hidden:true, itemId:'imgGood', width:16, src:'resources/images/good.png'}]}]}], listeners:{afterrender:'onWindowAfterRender'}, onBtnOKClick:function(button, e, eOpts) {
   var me = this, valid = me.form.isValid();
   if (!valid) {
-    Ext.Msg.alert('Eror', 'All fields must be valid before clicking this.');
+    Ext.Msg.alert('Eror', 'almost all fields must be valid before clicking this btn.');
   } else {
+    if (me.dlgBuddy) {
+      me.dlgBuddy.close();
+      me.dlgBuddy.destroy();
+      me.dlgBuddy = null;
+    }
     me.close();
   }
 }, onButtonClick:function(button, e, eOpts) {
   var me = this;
-  Ext.Msg.show({title:'Confirm Closing This Dialog', message:'Are you really sure you want to close me?', buttons:Ext.Msg.YESNOCANCEL, icon:Ext.Msg.ERROR, fn:function(btn) {
-    if (btn === 'no') {
-      me.close();
-    }
-  }});
+  Ext.Msg.show({title:'Confirm Closing This Dialog', message:'Are you really sure you want to close this?', buttons:Ext.Msg.YESNOCANCEL, icon:Ext.Msg.ERROR});
 }, onToolHelpClick:function(tool, e, owner, eOpts) {
   Ext.Msg.alert('Help', 'In the Report window on the right, specify all the problems/issues you see with this dialog form.');
 }, onToolSettingsClick:function(tool, e, owner, eOpts) {
@@ -80553,11 +80348,6 @@ title:"It's unclear to me too"}, {xtype:'image', height:16, hidden:true, itemId:
   me.form = me.down('#formPanel');
   me.state = me.STATE.ERROR;
   me.checkDialog();
-}, onWindowClose:function(panel, eOpts) {
-  var me = this, buddy = me.getDlgBuddy();
-  if (buddy) {
-    buddy.close();
-  }
 }, checkDialog:function() {
   var me = this, isValid = me.form.isValid();
   me.imgError.hide();
@@ -80592,19 +80382,15 @@ title:"It's unclear to me too"}, {xtype:'image', height:16, hidden:true, itemId:
   }
   me.checkDialog();
 }});
-Ext.define('UITest.view.DialogIssuesViewModel', {extend:Ext.app.ViewModel, alias:'viewmodel.dialogissues'});
-Ext.define('UITest.view.DialogIssues', {extend:Ext.window.Window, alias:'widget.dialogissues', alternateClassName:['DialogIssues'], statics:{addOneIssue:function(linkFieldEl) {
-  var dlg, arr = Ext.ComponentQuery.query('#dlgIssues');
-  if (!Ext.isEmpty(arr)) {
-    dlg = arr[0];
-  }
-  if (dlg) {
+Ext.define('UITest.view.DialogIssues', {extend:Ext.window.Window, alias:'widget.dialogissues', alternateClassName:['DialogIssues'], statics:{addOneIssue:function(el) {
+  var dlg, comps = Ext.ComponentQuery.query('#dlgIssues');
+  if (!Ext.isEmpty(comps)) {
+    dlg = comps[0];
     dlg.addIssue();
   }
-}}, config:{ttSubmit:'Click to populate an email message with the issues above, which will then allow sending to your interviewer', ttNoSubmit:'You must enter a valid email address AND at least one issue before you can submit the results'}, viewModel:{type:'dialogissues'}, cls:'issuesHeader', height:600, itemId:'dlgIssues', minHeight:250, minWidth:400, padding:10, width:433, icon:'resources/images/edit.png', title:'Report', defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, items:[{xtype:'displayfield', 
-itemId:'dfInstructions', value:'Record all the issues you see with the dialog on the left. You can add, modify, and/or delete items as desired. When finished, click the Submit button to send the results to your interviewer, whose email address you must enter here:'}, {xtype:'form', itemId:'formPanel', layout:'fit', header:false, title:'My Form', items:[{xtype:'textfield', itemId:'textSendTo', fieldLabel:'Send to', labelWidth:80, msgTarget:'side', allowBlank:false, blankText:'A valid email address must be supplied', 
-emptyText:'Enter destination email address', vtype:'email', listeners:{change:'onTextfieldChange'}}]}, {xtype:'gridpanel', flex:1, itemId:'gridIssues', bodyCls:'issues-body', header:false, title:'My Grid Panel', store:'Issues', dockedItems:[{xtype:'toolbar', dock:'top', height:36, itemId:'tbIssues', margin:'-10 0 0 0', layout:{type:'hbox', pack:'end'}, items:[{xtype:'displayfield', itemId:'linkAddIssue', value:'\x3ca href\x3d"#" onclick\x3d"DialogIssues.addOneIssue(this)"\x3eAdd issue\x3c/a\x3e'}]}], 
-columns:[{xtype:'actioncolumn', itemId:'colActions', width:68, hideable:false, text:'Actions', items:[{handler:function(view, rowIndex, colIndex, item, e, record, row) {
+}}, config:{ttSubmit:'Click to populate an email message with the issues above, which will then allow sending to your interviewer', ttNoSubmit:'You must enter a valid email address AND at least one issue before you can submit the results', dlgBuddy:null, cbSendResults:null}, cls:'issuesHeader', height:600, id:'dlgIssues', minHeight:250, minWidth:400, padding:10, width:433, icon:'resources/images/edit.png', title:'Report', defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, items:[{xtype:'form', 
+flex:1, itemId:'formPanel', header:false, layout:{type:'vbox', align:'stretch'}, items:[{xtype:'displayfield', itemId:'dfInstructions', value:'Record all the issues you see with the dialog on the left. You can add, modify, and/or delete items as desired. When finished, click the Submit button to send the results to your interviewer, whose address was supplied on the main page.'}, {xtype:'gridpanel', flex:1, itemId:'gridIssues', bodyCls:'issues-body', header:false, title:'My Grid Panel', store:'Issues', 
+dockedItems:[{xtype:'toolbar', dock:'top', height:36, itemId:'tbIssues', margin:'-10 0 0 0', items:[{xtype:'displayfield', itemId:'linkAddIssue', value:'\x3ca href\x3d"#" onclick\x3d"DialogIssues.addOneIssue(this)"\x3eAdd issue\x3c/a\x3e'}]}], columns:[{xtype:'actioncolumn', itemId:'colActions', width:72, hideable:false, text:'Actions', items:[{handler:function(view, rowIndex, colIndex, item, e, record, row) {
   var me = this, dlg = me.up('#dlgIssues'), store = dlg.gridStore;
   store.remove(record);
   dlg.checkValid();
@@ -80612,10 +80398,8 @@ columns:[{xtype:'actioncolumn', itemId:'colActions', width:68, hideable:false, t
   var me = this.up('#dlgIssues');
   me.editor.startEditByPosition({row:rowIndex, column:1});
 }, iconCls:'x-fa fa-edit issue-action', tooltip:'Double-click the Issues cell or use this to make changes'}]}, {xtype:'gridcolumn', flex:1, itemId:'colIssue', sortable:true, dataIndex:'issue', hideable:false, text:'Issues', editor:{xtype:'textfield', itemId:'editorIssue', allowBlank:false, blankText:'You must supply a description or delete it', emptyText:'Enter a description of the issue you found', listeners:{change:'onEditorIssueChange'}}}], viewConfig:{itemId:'viewIssues', markDirty:false, listeners:{rowkeydown:'onViewIssuesRowkeydown'}}, 
-plugins:[{ptype:'cellediting', pluginId:'issueEditor', listeners:{validateedit:'onCellEditingValidateedit'}}]}], dockedItems:[{xtype:'toolbar', dock:'bottom', itemId:'tbActions', layout:{type:'hbox', pack:'end'}, items:[{xtype:'button', itemId:'btnSubmit', text:'Submit', listeners:{click:'onBtnSubmitClick'}}]}], listeners:{afterrender:'onWindowAfterRender'}, onTextfieldChange:function(field, newValue, oldValue, eOpts) {
-  var me = this;
-  me.checkValid();
-}, onEditorIssueChange:function(field, newValue, oldValue, eOpts) {
+plugins:[{ptype:'cellediting', pluginId:'issueEditor', listeners:{validateedit:'onCellEditingValidateedit'}}]}], dockedItems:[{xtype:'toolbar', flex:1, dock:'bottom', itemId:'tbActions', layout:{type:'hbox', pack:'end'}, items:[{xtype:'button', disabled:true, itemId:'btnSubmit', margin:0, width:100, text:'Submit', tooltip:'Submit this link to your interviewer for evaluation', listeners:{click:'onBtnSubmitClick'}}, {xtype:'button', formBind:false, itemId:'btnClose', margin:'0 0 0 10', width:90, text:'Close', 
+tooltip:'Close this test', listeners:{click:'onBtnClose'}}]}]}], listeners:{close:'onDlgIssuesClose', afterrender:'onWindowAfterRender'}, onEditorIssueChange:function(field, newValue, oldValue, eOpts) {
 }, onViewIssuesRowkeydown:function(tableview, record, element, rowIndex, e, eOpts) {
   var me = this;
   me.tabbed = e.getKey() === e.TAB;
@@ -80625,21 +80409,30 @@ plugins:[{ptype:'cellediting', pluginId:'issueEditor', listeners:{validateedit:'
     me.checkValid();
   }, 50);
 }, onBtnSubmitClick:function(button, e, eOpts) {
-  var rec, issue, me = this, msg = 'Here are all the issues I found in this UI test:\r\n', store = me.gridStore, nRec = store.getCount();
+  var rec, issue, me = this, nRec = me.gridStore.getCount(), msg = 'Here are the issues from my "Dialog Issues" test:\r\n\r\n';
   for (var i = 0; i < nRec; i++) {
-    rec = store.getAt(i);
+    rec = me.gridStore.getAt(i);
     issue = rec.get('issue');
-    msg += i + 1 + '. ' + issue + '\r\n';
+    msg += issue + '\r\n';
   }
   msg += '\r\nRegards,\r\n{Enter your name here}';
   msg = encodeURIComponent(msg);
-  me.sendIssues(msg);
+  me.cbSendResults('Dialog Issues Results', msg);
+}, onBtnClose:function(button, e, eOpts) {
+  var me = this;
+  me.close();
+}, onDlgIssuesClose:function(panel, eOpts) {
+  var me = this;
+  if (me.dlgBuddy) {
+    me.dlgBuddy.close();
+    me.dlgBuddy.destroy();
+    me.dlgBuddy = null;
+  }
+  me.destroy();
 }, onWindowAfterRender:function(component, eOpts) {
   var store, me = this;
   me.btnSubmit = me.down('#btnSubmit');
-  me.btnCancel = me.down('#btnCancel');
   me.gridIssues = me.down('#gridIssues');
-  me.sendTo = me.down('#textSendTo');
   me.formPanel = me.down('#formPanel');
   me.colAction = me.gridIssues.down('#colActions');
   me.colIssue = me.gridIssues.down('#colIssue');
@@ -80673,20 +80466,100 @@ plugins:[{ptype:'cellediting', pluginId:'issueEditor', listeners:{validateedit:'
     }
   }
   me.btnSubmit.setDisabled(disable);
-}, sendIssues:function(msg) {
-  var me = this, addr = me.sendTo.getValue(), mailEl = document.createElement('a');
-  mailEl.href = 'mailto:' + addr + '?subject\x3dUI Test Results' + '\x26body\x3d' + msg;
-  mailEl.click();
 }});
-Ext.define('UITest.view.UITestViewModel', {extend:Ext.app.ViewModel, alias:'viewmodel.uitest'});
-Ext.define('UITest.view.UITest', {extend:Ext.container.Viewport, alias:'widget.uitest', viewModel:{type:'uitest'}, cls:'main-page', height:250, width:400, defaultListenerScope:true, layout:{type:'vbox', align:'center', pack:'center'}, items:[{xtype:'toolbar', itemId:'tbMain', layout:{type:'hbox', pack:'center'}, items:[{xtype:'buttongroup', cls:'tb-test-group', frame:false, defaults:{margin:'10 0 0 10'}, title:'UI Tests', columns:2, items:[{xtype:'button', hidden:true, itemId:'btnUserStory', width:150, 
-text:'User Story'}, {xtype:'button', itemId:'btnDialog', width:150, text:'Dialog Issues', tooltip:'Evaluate a dialog box with multiple layout, alignment, interaction, and general UI issues', listeners:{click:'onBtnDialogClick'}}]}]}], onBtnDialogClick:function(button, e, eOpts) {
-  var dlgCrazy = Ext.create('widget.crazydialog'), dlgIssues = Ext.create('widget.dialogissues');
-  dlgCrazy.setDlgBuddy(dlgIssues);
+Ext.define('UITest.view.TestPanelViewModel', {extend:Ext.app.ViewModel, alias:'viewmodel.testpanel'});
+Ext.define('UITest.view.TestPanel', {extend:Ext.panel.Panel, alias:'widget.testpanel', config:{testTitle:null, testDescription:null, testTBD:false, sendTo:null}, viewModel:{type:'testpanel'}, height:250, width:300, header:false, defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, items:[{xtype:'container', cls:'cont-title', itemId:'contTitle', layout:{type:'vbox', align:'center', pack:'center'}, items:[{xtype:'displayfield', flex:1, cls:'field-title', itemId:'dfTitle', margin:'0 0 -2 0', 
+value:'(title)'}]}, {xtype:'container', cls:'cont-description', flex:1, itemId:'contDescription', padding:'10 10 0 10', layout:{type:'vbox', align:'stretch'}, items:[{xtype:'displayfield', cls:'field-description text-field', flex:1, itemId:'dfDescription', value:'(description)'}, {xtype:'displayfield', cls:'field-tbd text-field', itemId:'dfTBD', value:'To be supplied at a future date'}]}], dockedItems:[{xtype:'toolbar', flex:1, cls:'tb-action', dock:'bottom', itemId:'tbActions', padding:6, layout:{type:'hbox', 
+pack:'center'}, items:[{xtype:'button', cls:'btn-action', itemId:'btnJump', text:'Start', listeners:{click:'onBtnJumpClick'}}]}], listeners:{afterrender:'onPanelAfterRender'}, onBtnJumpClick:function(button, e, eOpts) {
+  var me = this;
+  if (me.testCbInvoke) {
+    me.testCbInvoke.call(me.testCbScope, me.itemId);
+  }
+}, onPanelAfterRender:function(component, eOpts) {
+  var me = this;
+  me.dfTitle = me.down('#dfTitle');
+  me.dfDescription = me.down('#dfDescription');
+  me.dfTBD = me.down('#dfTBD');
+  me.btnJump = me.down('#btnJump');
+  me.dfTitle.setValue(me.getTestTitle());
+  me.dfDescription.setValue(me.getTestDescription());
+  me.dfTBD.setVisible(me.getTestTBD());
+  me.btnJump.setDisabled(me.getTestTBD());
+}, enableStartButton:function(enable) {
+  var me = this;
+  if (!me.getTestTBD()) {
+    me.btnJump.setDisabled(!enable);
+  }
+}});
+Ext.define('UITest.view.UseCase', {extend:Ext.window.Window, alias:'widget.usecase', alternateClassName:['UseCase'], config:{cbSendResults:null}, height:'100%', width:'100%', title:'Design From Use-Case', defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, items:[{xtype:'component', flex:1, autoEl:{src:'https://www.draw.io/?libs\x3dgeneral;mockups', tag:'iframe', name:'draw.io'}, itemId:'compUseCase'}, {xtype:'form', itemId:'formPanel', padding:'4 0 4 10', header:false, layout:{type:'hbox', 
+align:'stretch'}, items:[{xtype:'textfield', flex:1, itemId:'textURL', fieldLabel:'Link to my design', labelWidth:120, msgTarget:'side', allowBlank:false, blankText:'A valid URL must be supplied', emptyText:'Paste URL copied from the Export operation', vtype:'url', listeners:{change:'onTextfieldChange'}}, {xtype:'button', formBind:true, disabled:true, itemId:'btnSubmit', margin:'0 10 0 10', width:90, text:'Submit', tooltip:'Submit this link to your interviewer for evaluation', listeners:{click:'onBtnSubmitClick'}}, 
+{xtype:'button', formBind:false, itemId:'btnClose', margin:'0 10 0 0', width:90, text:'Close', tooltip:'Close this test', listeners:{click:'onBtnClose'}}]}], listeners:{afterrender:'onWindowAfterRender'}, onTextfieldChange:function(field, newValue, oldValue, eOpts) {
+  var me = this, form = me.formPanel;
+  form.isValid();
+}, onBtnSubmitClick:function(button, e, eOpts) {
+  var me = this, msg = 'Here is the URL of my "Design From Use-Case" test result:\r\n';
+  msg += me.textURL.getValue() + '\r\n';
+  msg += '\r\nRegards,\r\n{Enter your name here}';
+  msg = encodeURIComponent(msg);
+  me.cbSendResults('Design From Use-Case Results', msg);
+}, onBtnClose:function(button, e, eOpts) {
+  var me = this;
+  me.close();
+}, onWindowAfterRender:function(component, eOpts) {
+  var me = this;
+  me.formPanel = me.down('#formPanel');
+  me.textURL = me.down('#textURL');
+  me.compUseCase = me.down('#compUseCase');
+}});
+Ext.define('UITest.view.UITest', {extend:Ext.container.Viewport, alias:'widget.uitest', alternateClassName:['UITest'], config:{arrTests:[]}, cls:'main-page', height:250, width:400, defaultListenerScope:true, layout:{type:'vbox', align:'stretch'}, items:[{xtype:'container', cls:'main-cont-header', height:100, itemId:'contHeader', layout:{type:'vbox', align:'stretch', pack:'end'}, items:[{xtype:'container', flex:1, itemId:'contHeaderImg', layout:{type:'hbox', pack:'end'}, items:[{xtype:'displayfield', 
+cls:'main-field-company', itemId:'dfCompany', margin:'6 6 0 0', value:'MAI'}, {xtype:'image', height:34, itemId:'imgLogo', margin:'4 10 0 0', width:32, alt:'MAI logo', src:'resources/images/Logo-32x34.png', title:'MAI logo'}]}, {xtype:'displayfield', cls:'main-field-header text-field', flex:1, itemId:'dfHeader', padding:'-26 0 4 0', value:'UI Candidate Testing'}]}, {xtype:'form', cls:'main-cont-description', itemId:'formContent', padding:6, header:false, url:'save_to_log.php', layout:{type:'vbox', 
+align:'center'}, items:[{xtype:'displayfield', flex:1, cls:'cont-description', itemId:'dfDescription1', width:'60%', value:'The tests shown below are intended to evaluate UI candidates in various ways.', htmlEncode:true}, {xtype:'displayfield', flex:1, cls:'cont-description', itemId:'dfDescription2', margin:'-26 0 0 0', width:'60%', value:'To get started, enter the destination email address to whom the results of each should be sent.', htmlEncode:true}, {xtype:'textfield', cls:'contDescription', 
+itemId:'textSendTo', width:450, fieldLabel:'Send results to', labelWidth:110, msgTarget:'side', allowBlank:false, blankText:'A valid email address must be supplied', emptyText:'Enter the destination email address', vtype:'email', listeners:{change:'onTextfieldChange'}}, {xtype:'hiddenfield', itemId:'textSubmit'}]}, {xtype:'container', flex:1, cls:'main-cont-tiles', itemId:'contTiles', padding:10, width:'100%', layout:{type:'hbox', pack:'center'}, items:[{xtype:'testpanel', testTitle:'Design From Use-Case', 
+testDescription:'Given a use-case, design a form that accomplishes the objectives, satisfying all aspects of the use-case.', testTBD:false, itemId:'tpUseCase', margin:'10 0 0 10'}, {xtype:'testpanel', testTitle:'Dialog Issues', testDescription:'Analyze and evaluate a dialog box with multiple layout, alignment, interaction, and other UI issues. This is a great way to tell how meticulous you are with regard to attention to detail and knowledge of consistency, usability, interaction, and generally-accepted UI principles..', 
+testTBD:false, itemId:'tpDialog', margin:'10 0 0 10'}, {xtype:'testpanel', testTitle:'HTML/CSS Proficiency', testDescription:'Answer multiple choice questions on the topics of HTML and CSS.', testTBD:true, itemId:'tpHtmlCss', margin:'10 0 0 10'}]}, {xtype:'component', autoEl:{tag:'a', href:'', id:'mailComp-mailTo'}, hidden:true, itemId:'mailComp'}], listeners:{afterrender:'onViewportAfterRender'}, onTextfieldChange:function(field, newValue, oldValue, eOpts) {
+  var test, me = this, valid = me.formContent.isValid();
+  for (var i = 0; i < me.arrTests.length; i++) {
+    test = me.arrTests[i];
+    test.enableStartButton(valid);
+  }
+}, onViewportAfterRender:function(component, eOpts) {
+  var me = this;
+  me.sendTo = me.down('#textSendTo');
+  me.hiddenField = me.down('#textSubmit');
+  me.mailComp = me.down('#mailComp');
+  me.tpDialog = me.down('#tpDialog');
+  me.tpDialog.testCbInvoke = Ext.bind(me.showDialog, me);
+  me.tpDialog.enableStartButton(false);
+  me.arrTests.push(me.tpDialog);
+  me.tpUseCase = me.down('#tpUseCase');
+  me.tpUseCase.testCbInvoke = Ext.bind(me.showUseCase, me);
+  me.tpUseCase.enableStartButton(false);
+  me.arrTests.push(me.tpUseCase);
+  me.tpHtmlCss = me.down('#tpHtmlCss');
+  me.tpHtmlCss.testCbInvoke = Ext.bind(me.showHtmlCss, me);
+  me.tpHtmlCss.enableStartButton(false);
+  me.arrTests.push(me.tpHtmlCss);
+  me.formContent = me.down('#formContent');
+}, showDialog:function() {
+  var me = this, dlgCrazy = Ext.create('widget.crazydialog'), dlgIssues = Ext.create('widget.dialogissues', {dlgBuddy:dlgCrazy, cbSendResults:Ext.bind(me.sendResults, me)});
   dlgCrazy.show();
   dlgIssues.showBy(dlgCrazy, 'l-r?', [10, 0]);
+}, showUseCase:function() {
+  var me = this, dlgUseCase = Ext.create('widget.usecase', {cbSendResults:Ext.bind(me.sendResults, me)});
+  dlgUseCase.show();
+}, showHtmlCss:function() {
+  var me = this, dlgHtmlCss = Ext.create('widget.htmlcss', {cbSendResults:Ext.bind(me.sendResults, me)});
+  dlgHtmlCss.show();
+}, sendResults:function(subject, msg) {
+  var el, me = this;
+  mailEl = document.createElement('a');
+  mailEl.href = 'mailto:' + me.sendTo.getValue() + '?subject\x3d' + subject + '\x26body\x3d' + msg;
+  mailEl.target = 'draw.io';
+  el = document.getElementById('MathJax_Message');
+  document.body.insertBefore(mailEl, el);
+  mailEl.click();
 }});
 Ext.Loader.setConfig({});
-Ext.application({stores:['Scorers', 'Issues'], views:['UITest', 'CrazyDialog', 'DialogIssues'], name:'UITest', launch:function() {
+Ext.application({stores:['Scorers', 'Issues'], views:['UITest', 'CrazyDialog', 'DialogIssues', 'TestPanel', 'UseCase'], name:'UITest', launch:function() {
   Ext.create('UITest.view.UITest');
 }});

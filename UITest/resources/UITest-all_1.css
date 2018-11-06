@@ -1316,23 +1316,6 @@ td.x-frame-mc {
     bottom: 0;
     left: 0;
 }
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/src/layout/container/Table.scss:1 */
-.x-table-layout {
-    font-size: 1em;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/src/container/ButtonGroup.scss:1 */
-.x-btn-group {
-    position: relative;
-    overflow: hidden;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/src/container/ButtonGroup.scss:6 */
-.x-btn-group-body {
-    position: relative;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/src/container/ButtonGroup.scss:8 */
-.x-btn-group-body .x-table-layout-cell {
-    vertical-align: top;
-}
 /* C:/sem/Architect/UITest/ext/classic/theme-base/sass/src/plugin/Viewport.scss:1 */
 .x-viewport,
 .x-viewport > .x-body {
@@ -2121,7 +2104,7 @@ the height of a multi-line element */
     font-size: 13px;
     line-height: 17px;
     font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     background: #f6f6f6;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/Component.scss:18 */
@@ -2177,7 +2160,7 @@ body > .x-mask {
     padding: 0;
     background-color: transparent;
     color: #404040;
-    font: 300 13px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px "century gothic", "helvetica neue", helvetica, sans-serif;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/LoadMask.scss:61 */
 .x-mask-msg-text {
@@ -2204,7 +2187,7 @@ body > .x-mask {
     color: #fff;
     font-weight: 400;
     font-size: 13px;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     text-align: center;
     line-height: 24px;
 }
@@ -2357,7 +2340,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-default-small {
-    font: 400 12px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 12px/16px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #f0f0f0;
     padding: 0 5px;
     max-width: 100%;
@@ -2786,7 +2769,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-default-medium {
-    font: 400 14px/18px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 14px/18px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #f0f0f0;
     padding: 0 8px;
     max-width: 100%;
@@ -3215,7 +3198,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-default-large {
-    font: 400 16px/20px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 16px/20px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #f0f0f0;
     padding: 0 10px;
     max-width: 100%;
@@ -3644,7 +3627,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-default-toolbar-small {
-    font: 400 12px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 12px/16px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #606060;
     padding: 0 5px;
     max-width: 100%;
@@ -4073,7 +4056,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-default-toolbar-medium {
-    font: 400 14px/18px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 14px/18px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #606060;
     padding: 0 8px;
     max-width: 100%;
@@ -4502,7 +4485,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-default-toolbar-large {
-    font: 400 16px/20px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 16px/20px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #606060;
     padding: 0 10px;
     max-width: 100%;
@@ -5364,7 +5347,7 @@ body > .x-mask {
 .x-toolbar-text-default {
     padding: 0 4px;
     color: #4b4c4c;
-    font: 300 13px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/16px "century gothic", "helvetica neue", helvetica, sans-serif;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/toolbar/Toolbar.scss:700 */
 .x-toolbar-spacer-default {
@@ -5520,7 +5503,7 @@ body > .x-mask {
 .x-toolbar-text-footer {
     padding: 0 4px;
     color: #4b4c4c;
-    font: 300 13px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/16px "century gothic", "helvetica neue", helvetica, sans-serif;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/toolbar/Toolbar.scss:700 */
 .x-toolbar-spacer-footer {
@@ -5594,7 +5577,7 @@ body > .x-mask {
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/dd/StatusProxy.scss:1 */
 .x-dd-drag-proxy {
     color: #404040;
-    font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/17px "century gothic", "helvetica neue", helvetica, sans-serif;
     border: 1px solid #d0d0d0;
     background-color: #fff;
 }
@@ -5678,7 +5661,7 @@ body > .x-mask {
     color: #f0f0f0;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 20px;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/panel/Panel.scss:929 */
@@ -5749,7 +5732,7 @@ body > .x-mask {
     color: #404040;
     font-size: 13px;
     font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     border-width: 1px;
     border-style: solid;
 }
@@ -5966,7 +5949,7 @@ body > .x-mask {
     color: #f0f0f0;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 20px;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/panel/Panel.scss:929 */
@@ -6037,7 +6020,7 @@ body > .x-mask {
     color: #404040;
     font-size: 13px;
     font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     border-width: 1px;
     border-style: solid;
 }
@@ -7229,292 +7212,6 @@ body > .x-mask {
     border-color: #5fa2dd !important;
     border-width: 1px !important;
 }
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:243 */
-.x-btn-group-default {
-    border-color: #d0d0d0;
-    -webkit-box-shadow: #fff 0 1px 0px 0 inset, #fff 0 -1px 0px 0 inset, #fff -1px 0 0px 0 inset, #fff 1px 0 0px 0 inset;
-    -moz-box-shadow: #fff 0 1px 0px 0 inset, #fff 0 -1px 0px 0 inset, #fff -1px 0 0px 0 inset, #fff 1px 0 0px 0 inset;
-    box-shadow: #fff 0 1px 0px 0 inset, #fff 0 -1px 0px 0 inset, #fff -1px 0 0px 0 inset, #fff 1px 0 0px 0 inset;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:252 */
-.x-btn-group-header-default {
-    padding: 8px 8px 7px;
-    line-height: 16px;
-    background: #fff;
-    -moz-border-radius-topleft: 0px;
-    -webkit-border-top-left-radius: 0px;
-    border-top-left-radius: 0px;
-    -moz-border-radius-topright: 0px;
-    -webkit-border-top-right-radius: 0px;
-    border-top-right-radius: 0px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:263 */
-.x-btn-group-header-default .x-tool-img {
-    background-image: url(images/tools/tool-sprites-dark.png);
-    background-color: #fff;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:274 */
-.x-btn-group-header-title-default {
-    font: 300 14px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
-    line-height: 16px;
-    color: #606060;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:280 */
-.x-btn-group-body-default {
-    padding: 0 1px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:282 */
-.x-btn-group-body-default .x-table-layout {
-    border-spacing: 6px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
-.x-btn-group-default-framed {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    border-radius: 2px;
-    padding: 1px 1px 1px 1px;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #fff;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:237 */
-.x-btn-group-default-framed-mc {
-    background-color: #fff;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:264 */
-.x-nbr .x-btn-group-default-framed {
-    padding: 0 !important;
-    border-width: 0 !important;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px;
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:281 */
-.x-btn-group-default-framed-frameInfo {
-    font-family: dh-2-2-2-2-1-1-1-1-1-1-1-1;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:347 */
-.x-btn-group-default-framed-tl {
-    background-position: 0 -4px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:351 */
-.x-btn-group-default-framed-tr {
-    background-position: right -6px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:355 */
-.x-btn-group-default-framed-bl {
-    background-position: 0 -8px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:359 */
-.x-btn-group-default-framed-br {
-    background-position: right -10px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:363 */
-.x-btn-group-default-framed-ml {
-    background-position: 0 top;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:371 */
-.x-btn-group-default-framed-mr {
-    background-position: right top;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:379 */
-.x-btn-group-default-framed-tc {
-    background-position: 0 0;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:383 */
-.x-btn-group-default-framed-bc {
-    background-position: 0 -2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:388 */
-.x-btn-group-default-framed-tr,
-.x-btn-group-default-framed-br,
-.x-btn-group-default-framed-mr {
-    padding-right: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:394 */
-.x-btn-group-default-framed-tl,
-.x-btn-group-default-framed-bl,
-.x-btn-group-default-framed-ml {
-    padding-left: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:400 */
-.x-btn-group-default-framed-tc {
-    height: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:403 */
-.x-btn-group-default-framed-bc {
-    height: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:407 */
-.x-btn-group-default-framed-tl,
-.x-btn-group-default-framed-bl,
-.x-btn-group-default-framed-tr,
-.x-btn-group-default-framed-br,
-.x-btn-group-default-framed-tc,
-.x-btn-group-default-framed-bc,
-.x-btn-group-default-framed-ml,
-.x-btn-group-default-framed-mr {
-    background-image: url(images/btn-group/btn-group-default-framed-corners.gif);
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:453 */
-.x-btn-group-default-framed-ml,
-.x-btn-group-default-framed-mr {
-    background-image: url(images/btn-group/btn-group-default-framed-sides.gif);
-    background-repeat: repeat-y;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
-.x-btn-group-default-framed-mc {
-    padding: 0px 0px 0px 0px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
-.x-btn-group-default-framed-notitle {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    border-radius: 2px;
-    padding: 1px 1px 1px 1px;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #fff;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:237 */
-.x-btn-group-default-framed-notitle-mc {
-    background-color: #fff;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:264 */
-.x-nbr .x-btn-group-default-framed-notitle {
-    padding: 0 !important;
-    border-width: 0 !important;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px;
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:281 */
-.x-btn-group-default-framed-notitle-frameInfo {
-    font-family: dh-2-2-2-2-1-1-1-1-1-1-1-1;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:347 */
-.x-btn-group-default-framed-notitle-tl {
-    background-position: 0 -4px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:351 */
-.x-btn-group-default-framed-notitle-tr {
-    background-position: right -6px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:355 */
-.x-btn-group-default-framed-notitle-bl {
-    background-position: 0 -8px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:359 */
-.x-btn-group-default-framed-notitle-br {
-    background-position: right -10px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:363 */
-.x-btn-group-default-framed-notitle-ml {
-    background-position: 0 top;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:371 */
-.x-btn-group-default-framed-notitle-mr {
-    background-position: right top;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:379 */
-.x-btn-group-default-framed-notitle-tc {
-    background-position: 0 0;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:383 */
-.x-btn-group-default-framed-notitle-bc {
-    background-position: 0 -2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:388 */
-.x-btn-group-default-framed-notitle-tr,
-.x-btn-group-default-framed-notitle-br,
-.x-btn-group-default-framed-notitle-mr {
-    padding-right: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:394 */
-.x-btn-group-default-framed-notitle-tl,
-.x-btn-group-default-framed-notitle-bl,
-.x-btn-group-default-framed-notitle-ml {
-    padding-left: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:400 */
-.x-btn-group-default-framed-notitle-tc {
-    height: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:403 */
-.x-btn-group-default-framed-notitle-bc {
-    height: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:407 */
-.x-btn-group-default-framed-notitle-tl,
-.x-btn-group-default-framed-notitle-bl,
-.x-btn-group-default-framed-notitle-tr,
-.x-btn-group-default-framed-notitle-br,
-.x-btn-group-default-framed-notitle-tc,
-.x-btn-group-default-framed-notitle-bc,
-.x-btn-group-default-framed-notitle-ml,
-.x-btn-group-default-framed-notitle-mr {
-    background-image: url(images/btn-group/btn-group-default-framed-notitle-corners.gif);
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:453 */
-.x-btn-group-default-framed-notitle-ml,
-.x-btn-group-default-framed-notitle-mr {
-    background-image: url(images/btn-group/btn-group-default-framed-notitle-sides.gif);
-    background-repeat: repeat-y;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
-.x-btn-group-default-framed-notitle-mc {
-    padding: 0px 0px 0px 0px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:243 */
-.x-btn-group-default-framed {
-    border-color: #d0d0d0;
-    -webkit-box-shadow: #fff 0 1px 0px 0 inset, #fff 0 -1px 0px 0 inset, #fff -1px 0 0px 0 inset, #fff 1px 0 0px 0 inset;
-    -moz-box-shadow: #fff 0 1px 0px 0 inset, #fff 0 -1px 0px 0 inset, #fff -1px 0 0px 0 inset, #fff 1px 0 0px 0 inset;
-    box-shadow: #fff 0 1px 0px 0 inset, #fff 0 -1px 0px 0 inset, #fff -1px 0 0px 0 inset, #fff 1px 0 0px 0 inset;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:252 */
-.x-btn-group-header-default-framed {
-    padding: 8px 8px 7px;
-    line-height: 16px;
-    background: #fff;
-    -moz-border-radius-topleft: 2px;
-    -webkit-border-top-left-radius: 2px;
-    border-top-left-radius: 2px;
-    -moz-border-radius-topright: 2px;
-    -webkit-border-top-right-radius: 2px;
-    border-top-right-radius: 2px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:263 */
-.x-btn-group-header-default-framed .x-tool-img {
-    background-image: url(images/tools/tool-sprites-dark.png);
-    background-color: #fff;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:274 */
-.x-btn-group-header-title-default-framed {
-    font: 300 14px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
-    line-height: 16px;
-    color: #606060;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:280 */
-.x-btn-group-body-default-framed {
-    padding: 0 1px;
-}
-/* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/container/ButtonGroup.scss:282 */
-.x-btn-group-body-default-framed .x-table-layout {
-    border-spacing: 6px;
-}
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/window/Window.scss:1 */
 .x-window-ghost {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -7650,7 +7347,7 @@ body > .x-mask {
     color: #000;
     font-size: 13px;
     font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/window/Window.scss:581 */
 .x-window-header-default {
@@ -7667,7 +7364,7 @@ body > .x-mask {
     color: #f0f0f0;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 20px;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/window/Window.scss:631 */
@@ -8780,7 +8477,7 @@ body > .x-mask {
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/form/Labelable.scss:97 */
 .x-form-item-label-default {
     color: #404040;
-    font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/17px "century gothic", "helvetica neue", helvetica, sans-serif;
     min-height: 32px;
     padding-top: 8px;
     padding-right: 5px;
@@ -8817,7 +8514,7 @@ body > .x-mask {
 .x-form-invalid-under-default {
     padding: 2px 2px 2px 20px;
     color: #cf4c35;
-    font: 300 13px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/16px "century gothic", "helvetica neue", helvetica, sans-serif;
     background: no-repeat 0 2px;
     background-image: url(images/form/exclamation.png);
 }
@@ -8861,7 +8558,7 @@ body > .x-mask {
     color: #404040;
     padding: 5px 10px 4px;
     background-color: #fff;
-    font: 300 13px/21px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/21px "century gothic", "helvetica neue", helvetica, sans-serif;
     min-height: 30px;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/form/field/Text.scss:272 */
@@ -9074,7 +8771,7 @@ body > .x-mask {
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/form/field/Checkbox.scss:185 */
 .x-form-cb-label-default {
     margin-top: 8px;
-    font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/17px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #404040;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/form/field/Checkbox.scss:190 */
@@ -9230,7 +8927,7 @@ body > .x-mask {
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/view/BoundList.scss:8 */
 .x-boundlist-item {
     padding: 0 10px;
-    font: normal 13px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: normal 13px "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 30px;
     cursor: pointer;
     cursor: hand;
@@ -9265,7 +8962,7 @@ body > .x-mask {
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/form/field/Display.scss:52 */
 .x-form-display-field-default {
     min-height: 32px;
-    font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/17px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #404040;
     margin-top: 8px;
 }
@@ -9752,12 +9449,12 @@ body > .x-mask {
     padding: 10px;
     color: grey;
     background-color: #fff;
-    font: 300 13px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px "century gothic", "helvetica neue", helvetica, sans-serif;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/view/Table.scss:30 */
 .x-grid-item {
     color: #404040;
-    font: 300 13px/19px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px/19px "century gothic", "helvetica neue", helvetica, sans-serif;
     background-color: #fff;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/src/view/Table.scss:36 */
@@ -9945,7 +9642,7 @@ body > .x-mask {
 .x-column-header {
     border-right: 1px solid #d0d0d0;
     color: #404040;
-    font: 400 13px/19px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 13px/19px "century gothic", "helvetica neue", helvetica, sans-serif;
     outline: 0;
     background-color: #fff;
 }
@@ -10202,7 +9899,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/menu/Menu.scss:916 */
 .x-menu-item-text-default {
-    font: 300 13px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 31px;
     padding-top: 1px;
     color: #000;
@@ -10484,7 +10181,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/menu/Menu.scss:916 */
 .x-menu-item-text-default-menubar {
-    font: 300 13px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 300 13px "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 31px;
     padding-top: 1px;
     color: #000;
@@ -11106,7 +10803,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-plain-toolbar-small {
-    font: 400 12px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 12px/16px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #606060;
     padding: 0 5px;
     max-width: 100%;
@@ -11518,7 +11215,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-plain-toolbar-medium {
-    font: 400 14px/18px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 14px/18px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #606060;
     padding: 0 8px;
     max-width: 100%;
@@ -11930,7 +11627,7 @@ body > .x-mask {
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/button/Button.scss:2482 */
 .x-btn-inner-plain-toolbar-large {
-    font: 400 16px/20px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font: 400 16px/20px "century gothic", "helvetica neue", helvetica, sans-serif;
     color: #606060;
     padding: 0 10px;
     max-width: 100%;
@@ -12295,7 +11992,7 @@ body > .x-mask {
     color: #606060;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 20px;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/panel/Panel.scss:929 */
@@ -12366,7 +12063,7 @@ body > .x-mask {
     color: #404040;
     font-size: 13px;
     font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     border-width: 1px;
     border-style: solid;
 }
@@ -12587,7 +12284,7 @@ body > .x-mask {
     color: #606060;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     line-height: 20px;
 }
 /* C:/sem/Architect/UITest/ext/classic/theme-neutral/sass/var/panel/Panel.scss:929 */
@@ -12658,7 +12355,7 @@ body > .x-mask {
     color: #404040;
     font-size: 13px;
     font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    font-family: "century gothic", "helvetica neue", helvetica, sans-serif;
     border-width: 1px;
     border-style: solid;
 }
@@ -15520,4 +15217,292 @@ body > .x-mask {
 /* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:394 */
 .fa-bitbucket:before {
     content: "\f171" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:395 */
+.fa-bitbucket-square:before {
+    content: "\f172" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:396 */
+.fa-tumblr:before {
+    content: "\f173" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:397 */
+.fa-tumblr-square:before {
+    content: "\f174" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:398 */
+.fa-long-arrow-down:before {
+    content: "\f175" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:399 */
+.fa-long-arrow-up:before {
+    content: "\f176" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:400 */
+.fa-long-arrow-left:before {
+    content: "\f177" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:401 */
+.fa-long-arrow-right:before {
+    content: "\f178" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:402 */
+.fa-apple:before {
+    content: "\f179" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:403 */
+.fa-windows:before {
+    content: "\f17a" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:404 */
+.fa-android:before {
+    content: "\f17b" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:405 */
+.fa-linux:before {
+    content: "\f17c" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:406 */
+.fa-dribbble:before {
+    content: "\f17d" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:407 */
+.fa-skype:before {
+    content: "\f17e" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:408 */
+.fa-foursquare:before {
+    content: "\f180" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:409 */
+.fa-trello:before {
+    content: "\f181" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:410 */
+.fa-female:before {
+    content: "\f182" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:411 */
+.fa-male:before {
+    content: "\f183" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:412 */
+.fa-gittip:before,
+.fa-gratipay:before {
+    content: "\f184" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:414 */
+.fa-sun-o:before {
+    content: "\f185" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:415 */
+.fa-moon-o:before {
+    content: "\f186" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:416 */
+.fa-archive:before {
+    content: "\f187" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:417 */
+.fa-bug:before {
+    content: "\f188" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:418 */
+.fa-vk:before {
+    content: "\f189" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:419 */
+.fa-weibo:before {
+    content: "\f18a" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:420 */
+.fa-renren:before {
+    content: "\f18b" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:421 */
+.fa-pagelines:before {
+    content: "\f18c" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:422 */
+.fa-stack-exchange:before {
+    content: "\f18d" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:423 */
+.fa-arrow-circle-o-right:before {
+    content: "\f18e" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:424 */
+.fa-arrow-circle-o-left:before {
+    content: "\f190" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:425 */
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+    content: "\f191" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:427 */
+.fa-dot-circle-o:before {
+    content: "\f192" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:428 */
+.fa-wheelchair:before {
+    content: "\f193" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:429 */
+.fa-vimeo-square:before {
+    content: "\f194" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:430 */
+.fa-turkish-lira:before,
+.fa-try:before {
+    content: "\f195" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:432 */
+.fa-plus-square-o:before {
+    content: "\f196" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:433 */
+.fa-space-shuttle:before {
+    content: "\f197" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:434 */
+.fa-slack:before {
+    content: "\f198" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:435 */
+.fa-envelope-square:before {
+    content: "\f199" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:436 */
+.fa-wordpress:before {
+    content: "\f19a" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:437 */
+.fa-openid:before {
+    content: "\f19b" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:438 */
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+    content: "\f19c" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:441 */
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+    content: "\f19d" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:443 */
+.fa-yahoo:before {
+    content: "\f19e" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:444 */
+.fa-google:before {
+    content: "\f1a0" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:445 */
+.fa-reddit:before {
+    content: "\f1a1" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:446 */
+.fa-reddit-square:before {
+    content: "\f1a2" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:447 */
+.fa-stumbleupon-circle:before {
+    content: "\f1a3" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:448 */
+.fa-stumbleupon:before {
+    content: "\f1a4" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:449 */
+.fa-delicious:before {
+    content: "\f1a5" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:450 */
+.fa-digg:before {
+    content: "\f1a6" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:451 */
+.fa-pied-piper-pp:before {
+    content: "\f1a7" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:452 */
+.fa-pied-piper-alt:before {
+    content: "\f1a8" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:453 */
+.fa-drupal:before {
+    content: "\f1a9" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:454 */
+.fa-joomla:before {
+    content: "\f1aa" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:455 */
+.fa-language:before {
+    content: "\f1ab" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:456 */
+.fa-fax:before {
+    content: "\f1ac" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:457 */
+.fa-building:before {
+    content: "\f1ad" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:458 */
+.fa-child:before {
+    content: "\f1ae" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:459 */
+.fa-paw:before {
+    content: "\f1b0" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:460 */
+.fa-spoon:before {
+    content: "\f1b1" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:461 */
+.fa-cube:before {
+    content: "\f1b2" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:462 */
+.fa-cubes:before {
+    content: "\f1b3" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:463 */
+.fa-behance:before {
+    content: "\f1b4" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:464 */
+.fa-behance-square:before {
+    content: "\f1b5" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:465 */
+.fa-steam:before {
+    content: "\f1b6" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:466 */
+.fa-steam-square:before {
+    content: "\f1b7" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:467 */
+.fa-recycle:before {
+    content: "\f1b8" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:468 */
+.fa-automobile:before,
+.fa-car:before {
+    content: "\f1b9" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:470 */
+.fa-cab:before,
+.fa-taxi:before {
+    content: "\f1ba" !important;
+}
+/* C:/sem/Architect/UITest/ext/packages/font-awesome/sass/etc/_icons.scss:472 */
+.fa-tree:before {
+    content: "\f1bb" !important;
 }
